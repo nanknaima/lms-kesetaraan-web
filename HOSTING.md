@@ -61,14 +61,15 @@ Bagian ini gampang, hampir semua platform kasih gratis selamanya buat project ka
 **Vercel** — ini pilihan paling pas karena Next.js emang buatan mereka sendiri, jadi semua fitur (image optimization, server actions, dll) jalan mulus tanpa konfigurasi tambahan. Free tier "Hobby"-nya cukup buat kebutuhan LMS sekolah — bandwidth dan build minutes-nya jauh dari batas kalau bukan skala ribuan pengunjung bersamaan.
 
 Untuk deploy, hubungkan repo frontend ke Vercel dan gunakan root directory repo frontend. Isi
-`NEXT_PUBLIC_API_URL` dengan URL backend lengkap sampai `/api`, misalnya
-`https://lms-kesetaraan-api.vercel.app/api` (akhiri `/api` tepat satu kali), lalu deploy
+`NEXT_PUBLIC_API_URL` dengan URL backend lengkap sampai `/api/api`, misalnya
+`https://lms-kesetaraan-api.vercel.app/api/api`, lalu deploy
 Production. Di backend Laravel, izinkan origin frontend HTTPS di `config/cors.php`.
 Preview deployment dengan nama project `lms-kesetaraan` juga dicakup oleh pola
 CORS yang terbatas. Setelah mengubah `NEXT_PUBLIC_API_URL`, deploy ulang frontend
 karena nilainya dimasukkan saat build.
 Jika memakai Sanctum stateful cookies, set `SANCTUM_STATEFUL_DOMAINS` ke domain frontend
-tanpa skema; API web saat ini mengirim bearer token. Untuk error login database TiDB,
+tanpa skema; API web saat ini mengirim bearer token. URL `/api/api` berlaku untuk
+backend yang dideploy sebagai fungsi Vercel sesuai `backend/vercel.json`. Untuk error login database TiDB,
 pastikan konfigurasi MySQL backend mengaktifkan TLS dan seluruh environment variables
 database Vercel sudah benar.
 
