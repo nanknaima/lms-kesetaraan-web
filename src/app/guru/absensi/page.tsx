@@ -8,7 +8,7 @@ import { usePenugasanAktif } from "@/hooks/usePenugasanAktif";
 import { hariIniStr, bulanIniStr } from "@/lib/date";
 import type { AbsensiGuruRow, KelasGuru, MuridRingkasKelas, RekapAbsensiResponse, StatusAbsensi } from "@/lib/types-guru";
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8000/api";
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://https://lms-kesetaraan-api.vercel.app/api/api";
 
 const STATUS_OPTIONS: StatusAbsensi[] = ["hadir", "izin", "sakit", "alpa"];
 

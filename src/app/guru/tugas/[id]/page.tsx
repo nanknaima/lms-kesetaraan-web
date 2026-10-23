@@ -9,7 +9,7 @@ import { Card } from "@/components/ui/Card";
 import { formatTanggalWaktu } from "@/lib/date";
 import type { SubmissionTugas } from "@/lib/types";
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8000/api";
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://https://lms-kesetaraan-api.vercel.app/api/api";
 
 /**
  * Halaman grading: lihat hasil upload murid → input nilai + feedback → export.

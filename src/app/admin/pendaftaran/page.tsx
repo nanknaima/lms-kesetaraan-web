@@ -8,7 +8,7 @@ import { Card } from "@/components/ui/Card";
 import { formatTanggal } from "@/lib/date";
 import type { Paginated, Pendaftaran } from "@/lib/types";
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8000/api";
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL ?? "https://lms-kesetaraan-api.vercel.app/api";
 
 const STATUS_OPTIONS = ["pending", "approved", "rejected"] as const;
 

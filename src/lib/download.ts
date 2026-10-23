@@ -6,7 +6,7 @@
  */
 import { getAccessToken } from "./api";
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8000/api";
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://https://lms-kesetaraan-api.vercel.app/api/api";
 
 async function fetchBlob(path: string): Promise<Blob> {
   const res = await fetch(`${API_BASE_URL}${path}`, {
