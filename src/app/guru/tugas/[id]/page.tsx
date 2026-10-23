@@ -2,14 +2,12 @@
 
 import { use, useEffect, useState } from "react";
 import { AlertTriangle, CheckCircle2, Download, Eye } from "lucide-react";
-import { api, getAccessToken } from "@/lib/api";
+import { api, getAccessToken, API_BASE_URL } from "@/lib/api";
 import { unduhBerkas, ambilBlobUntukPreview } from "@/lib/download";
 import { usePreview } from "@/components/ui/usePreview";
 import { Card } from "@/components/ui/Card";
 import { formatTanggalWaktu } from "@/lib/date";
 import type { SubmissionTugas } from "@/lib/types";
-
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL ?? "https://lms-kesetaraan-api.vercel.app/api";
 
 /**
  * Halaman grading: lihat hasil upload murid → input nilai + feedback → export.

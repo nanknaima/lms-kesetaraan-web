@@ -3,12 +3,10 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Download } from "lucide-react";
-import { api, ApiError, getAccessToken } from "@/lib/api";
+import { api, ApiError, getAccessToken, API_BASE_URL } from "@/lib/api";
 import { Card } from "@/components/ui/Card";
 import { formatTanggal } from "@/lib/date";
 import type { Paginated, Pendaftaran } from "@/lib/types";
-
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL ?? "https://lms-kesetaraan-api.vercel.app/api";
 
 const STATUS_OPTIONS = ["pending", "approved", "rejected"] as const;
 

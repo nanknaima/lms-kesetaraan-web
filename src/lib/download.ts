@@ -4,9 +4,7 @@
  * tidak bisa membawa header Authorization, jadi harus fetch()+blob dulu.
  * Pola yang sama sudah dipakai di guru/absensi/page.tsx untuk export Excel/PDF.
  */
-import { getAccessToken } from "./api";
-
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL ?? "https://lms-kesetaraan-api.vercel.app/api";
+import { API_BASE_URL, getAccessToken } from "./api";
 
 async function fetchBlob(path: string): Promise<Blob> {
   const res = await fetch(`${API_BASE_URL}${path}`, {

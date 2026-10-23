@@ -2,7 +2,7 @@
 
 import { Suspense, useEffect, useRef, useState } from "react";
 import { Plus, Pencil, Trash2 } from "lucide-react";
-import { api, getAccessToken, ApiError } from "@/lib/api";
+import { api, getAccessToken, ApiError, API_BASE_URL } from "@/lib/api";
 import { Card } from "@/components/ui/Card";
 import { PenugasanAktifBanner, TanpaPenugasanAktif } from "@/components/PenugasanAktifBanner";
 import { usePenugasanAktif } from "@/hooks/usePenugasanAktif";
@@ -16,8 +16,6 @@ import type {
   NilaiAkhirGuru,
   Paginated,
 } from "@/lib/types-guru";
-
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL ?? "https://lms-kesetaraan-api.vercel.app/api";
 
 const TIPE_LABEL: Record<KomponenNilaiTipe, string> = {
   manual: "Manual",

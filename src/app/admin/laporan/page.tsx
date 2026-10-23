@@ -2,10 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { UserSquare2, GraduationCap, Award, Eye, X, type LucideIcon } from "lucide-react";
-import { api, getAccessToken } from "@/lib/api";
+import { api, getAccessToken, API_BASE_URL } from "@/lib/api";
 import { Card } from "@/components/ui/Card";
-
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL ?? "https://lms-kesetaraan-api.vercel.app/api";
 
 type Jenis = "guru" | "murid" | "kelulusan";
 type Format = "xlsx" | "pdf";

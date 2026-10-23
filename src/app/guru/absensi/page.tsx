@@ -1,14 +1,12 @@
 "use client";
 
 import { Suspense, useEffect, useMemo, useState } from "react";
-import { api, getAccessToken } from "@/lib/api";
+import { api, getAccessToken, API_BASE_URL } from "@/lib/api";
 import { Card } from "@/components/ui/Card";
 import { PenugasanAktifBanner, TanpaPenugasanAktif } from "@/components/PenugasanAktifBanner";
 import { usePenugasanAktif } from "@/hooks/usePenugasanAktif";
 import { hariIniStr, bulanIniStr } from "@/lib/date";
 import type { AbsensiGuruRow, KelasGuru, MuridRingkasKelas, RekapAbsensiResponse, StatusAbsensi } from "@/lib/types-guru";
-
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL ?? "https://lms-kesetaraan-api.vercel.app/api";
 
 const STATUS_OPTIONS: StatusAbsensi[] = ["hadir", "izin", "sakit", "alpa"];
 
