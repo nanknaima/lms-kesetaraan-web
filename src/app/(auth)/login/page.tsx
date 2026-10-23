@@ -100,7 +100,7 @@ function LoginPageInner() {
                     value={identifier}
                     onChange={(e) => setIdentifier(e.target.value)}
                     className="w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-sm focus:border-teal-500 focus:outline-none focus:ring-2 focus:ring-teal-100 dark:border-slate-700 dark:bg-slate-800 dark:focus:ring-teal-900"
-                    placeholder="admin@sekolah.sch.id atau A2024001"
+                    placeholder="Email terdaftar, NIS murid, atau NIP guru"
                   />
                 </div>
                 <div>

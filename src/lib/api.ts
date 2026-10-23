@@ -60,7 +60,7 @@ export async function apiFetch<T = unknown>(
 
   const res = await fetch(`${API_BASE_URL}${path}`, { ...options, headers });
 
-  if (res.status === 401 && !_retried) {
+  if (res.status === 401 && !_retried && token && path !== "/auth/login") {
     const refreshed = await refreshAccessToken();
     if (refreshed) return apiFetch<T>(path, options, true);
     clearTokens();
