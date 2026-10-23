@@ -1,7 +1,7 @@
 import { api, setTokens, clearTokens } from "./api";
 import type { User } from "./types";
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://https://lms-kesetaraan-api.vercel.app/api/api";
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL ?? "https://lms-kesetaraan-api.vercel.app/api";
 
 interface LoginResponse {
   data: {

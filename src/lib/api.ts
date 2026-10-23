@@ -2,8 +2,7 @@
  * Fetch wrapper tipis untuk memanggil backend Laravel (shared API dengan mobile).
  * Menyimpan access/refresh token di localStorage & otomatis refresh saat 401.
  */
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://https://lms-kesetaraan-api.vercel.app/api/api";
-
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL ?? "https://lms-kesetaraan-api.vercel.app/api";
 const TOKEN_KEY = "lms_access_token";
 const REFRESH_KEY = "lms_refresh_token";
 

@@ -5,7 +5,7 @@ import { UserSquare2, GraduationCap, Award, Eye, X, type LucideIcon } from "luci
 import { api, getAccessToken } from "@/lib/api";
 import { Card } from "@/components/ui/Card";
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://https://lms-kesetaraan-api.vercel.app/api/api";
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL ?? "https://lms-kesetaraan-api.vercel.app/api";
 
 type Jenis = "guru" | "murid" | "kelulusan";
 type Format = "xlsx" | "pdf";
