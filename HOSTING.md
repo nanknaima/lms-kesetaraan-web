@@ -60,7 +60,14 @@ Bagian ini gampang, hampir semua platform kasih gratis selamanya buat project ka
 
 **Vercel** — ini pilihan paling pas karena Next.js emang buatan mereka sendiri, jadi semua fitur (image optimization, server actions, dll) jalan mulus tanpa konfigurasi tambahan. Free tier "Hobby"-nya cukup buat kebutuhan LMS sekolah — bandwidth dan build minutes-nya jauh dari batas kalau bukan skala ribuan pengunjung bersamaan.
 
-Caranya persis kayak yang udah ada di `docs/deployment.md`: `vercel link`, set `NEXT_PUBLIC_API_URL` ke alamat backend Oracle Cloud kamu, terus `vercel --prod`. Yang perlu diinget: karena backend dan frontend beda domain, pastikan `SANCTUM_STATEFUL_DOMAINS` dan CORS di Laravel udah diarahkan ke domain Vercel-nya, kalau nggak nanti login-nya gagal terus padahal kodenya udah bener.
+Untuk deploy, hubungkan repo frontend ke Vercel dan gunakan root directory repo frontend. Isi
+`NEXT_PUBLIC_API_URL` dengan URL backend lengkap sampai `/api`, misalnya
+`https://lms-kesetaraan-api.vercel.app/api` (akhiri `/api` tepat satu kali), lalu deploy
+Production. Di backend Laravel, izinkan origin frontend HTTPS di `config/cors.php`.
+Jika memakai Sanctum stateful cookies, set `SANCTUM_STATEFUL_DOMAINS` ke domain frontend
+tanpa skema; API web saat ini mengirim bearer token. Untuk error login database TiDB,
+pastikan konfigurasi MySQL backend mengaktifkan TLS dan seluruh environment variables
+database Vercel sudah benar.
 
 Gratis di sini beneran gratis selamanya, jadi nggak ada alasan buat bayar untuk bagian frontend kecuali butuh custom domain enterprise atau traffic yang udah gede banget.
 
