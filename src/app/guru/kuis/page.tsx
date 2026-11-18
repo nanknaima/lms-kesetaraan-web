@@ -41,7 +41,7 @@ function GuruKuisListPageInner() {
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
           <h1 className="text-2xl font-bold text-slate-900 dark:text-white">Kelola Kuis</h1>
           <p className="text-sm text-slate-500">Buat kuis baru, kelola soal, dan nilai hasil murid.</p>
@@ -66,7 +66,7 @@ function GuruKuisListPageInner() {
         />
       )}
 
-      <Card className="p-0">
+      <Card className="overflow-x-auto p-0">
         <table className="w-full text-sm">
           <thead>
             <tr className="border-b border-slate-200 text-left text-slate-500 dark:border-slate-800">

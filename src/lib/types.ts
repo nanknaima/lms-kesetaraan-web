@@ -24,6 +24,54 @@ export interface AdminAkun {
   status: string;
 }
 
+export type MataUang = "IDR" | "NTD";
+
+export interface TagihanPembayaran {
+  id: number;
+  murid_id: number;
+  periode: string;
+  keterangan: string | null;
+  jumlah: string;
+  total_dibayar: string;
+  sisa: string;
+  mata_uang: MataUang;
+  jatuh_tempo: string | null;
+  status_pembayaran: "belum_lunas" | "sebagian" | "lunas";
+  murid?: { id: number; nama: string; nis: string | null };
+  pembayaran?: PembayaranMurid[];
+}
+
+export interface PembayaranMurid {
+  id: number;
+  jumlah: string;
+  tanggal: string;
+  metode: "tunai" | "transfer" | "lainnya";
+  catatan: string | null;
+}
+
+export interface HonorGuruAdmin {
+  id: number;
+  guru_id: number;
+  periode: string;
+  keterangan: string | null;
+  jumlah: string;
+  mata_uang: MataUang;
+  status: "belum_dibayar" | "dibayar";
+  tanggal_bayar: string | null;
+  metode_bayar: "tunai" | "transfer" | "lainnya" | null;
+  guru?: { id: number; nama: string; nip: string | null };
+}
+
+export interface TransaksiKeuangan {
+  id: number;
+  jenis: "pemasukan" | "pengeluaran";
+  sumber: "pembayaran" | "honor" | "manual";
+  keterangan: string;
+  jumlah: string;
+  mata_uang: MataUang;
+  tanggal: string;
+}
+
 /** GET /chat/kontak — daftar kontak chat personal (BUKAN forum Diskusi), otomatis mengikuti hubungan sekolah. */
 export interface ChatKontak {
   id: number;

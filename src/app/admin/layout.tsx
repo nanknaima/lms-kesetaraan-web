@@ -14,6 +14,9 @@ import {
   UserCheck,
   ShieldCheck,
   User as UserIcon,
+  Banknote,
+  Calculator,
+  Wallet,
 } from "lucide-react";
 
 const NAV_DASAR: NavItem[] = [
@@ -23,6 +26,9 @@ const NAV_DASAR: NavItem[] = [
   { href: "/admin/pendaftaran", label: "Pendaftaran", icon: ClipboardList },
   { href: "/admin/kelas", label: "Kelas & Mapel", icon: School },
   { href: "/admin/penugasan", label: "Penugasan Guru", icon: UserCheck },
+  { href: "/admin/pembayaran", label: "Pembayaran", icon: Banknote },
+  { href: "/admin/rekap-honor", label: "Rekap Honor", icon: Calculator },
+  { href: "/admin/keuangan", label: "Keuangan", icon: Wallet },
   { href: "/admin/pengumuman", label: "Pengumuman", icon: Megaphone },
   { href: "/admin/kelulusan", label: "Kelulusan", icon: Award },
   { href: "/admin/laporan", label: "Laporan", icon: FileText },
@@ -32,7 +38,7 @@ const NAV_DASAR: NavItem[] = [
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
   const { user, loading } = useAuth("admin");
 
-  if (loading) return <div className="flex min-h-screen items-center justify-center text-sm text-slate-500">Memuat...</div>;
+  if (loading) return <div className="flex min-h-dvh items-center justify-center text-sm text-slate-500">Memuat...</div>;
 
   // "Kelola Admin" cuma tampil untuk admin_level='super' (Bagian 10) — akun
   // 'staff' tidak melihat menu ini sama sekali, akses langsung via URL tetap
@@ -43,9 +49,9 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       : NAV_DASAR;
 
   return (
-    <div className="flex h-screen overflow-hidden bg-slate-50 dark:bg-slate-950">
+    <div className="flex h-dvh overflow-hidden bg-slate-50 dark:bg-slate-950">
       <Sidebar user={user} items={nav} roleLabel="Administrator" />
-      <main className="flex-1 overflow-y-auto p-6">{children}</main>
+      <main className="min-h-0 min-w-0 flex-1 overflow-x-hidden overflow-y-auto px-4 pb-6 pt-20 sm:px-6 lg:p-6">{children}</main>
     </div>
   );
 }

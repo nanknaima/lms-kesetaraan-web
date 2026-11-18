@@ -184,7 +184,7 @@ export default function GuruKelasMapelSayaPage() {
         )}
       </Card>
 
-      <Card className="p-0">
+      <Card className="overflow-x-auto p-0">
         <p className="p-4 pb-0 font-semibold text-slate-800 dark:text-white">Riwayat Pengajuan Saya</p>
         <table className="mt-2 w-full text-sm">
           <thead>

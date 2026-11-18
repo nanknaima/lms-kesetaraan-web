@@ -109,7 +109,7 @@ function GuruKuisDetailContent({ id }: { id: string }) {
         </div>
       </Card>
 
-      <Card>
+      <Card className="overflow-x-auto">
         <p className="mb-3 font-semibold text-slate-800 dark:text-white">Rekap Nilai</p>
         <table className="w-full text-sm">
           <thead>

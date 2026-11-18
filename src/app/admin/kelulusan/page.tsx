@@ -56,7 +56,7 @@ export default function AdminKelulusanPage() {
         </p>
       )}
 
-      <Card className="p-0">
+      <Card className="overflow-x-auto p-0">
         <table className="w-full text-sm">
           <thead>
             <tr className="border-b border-slate-200 text-left text-slate-500 dark:border-slate-800">

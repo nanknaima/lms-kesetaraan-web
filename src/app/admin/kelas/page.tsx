@@ -70,7 +70,7 @@ export default function AdminKelasPage() {
       )}
 
       {/* ==================== KELAS ==================== */}
-      <div className="flex items-center justify-between">
+      <div className="flex flex-wrap items-center justify-between gap-3">
         <h2 className="text-lg font-semibold text-slate-800 dark:text-white">Kelas</h2>
         <button
           onClick={() => {
@@ -100,7 +100,7 @@ export default function AdminKelasPage() {
         />
       )}
 
-      <Card className="p-0">
+      <Card className="overflow-x-auto p-0">
         <table className="w-full text-sm">
           <thead>
             <tr className="border-b border-slate-200 text-left text-slate-500 dark:border-slate-800">
@@ -148,7 +148,7 @@ export default function AdminKelasPage() {
       </Card>
 
       {/* ==================== MAPEL ==================== */}
-      <div className="flex items-center justify-between pt-2">
+      <div className="flex flex-wrap items-center justify-between gap-3 pt-2">
         <h2 className="text-lg font-semibold text-slate-800 dark:text-white">Mata Pelajaran</h2>
         <button
           onClick={() => {
@@ -177,7 +177,7 @@ export default function AdminKelasPage() {
         />
       )}
 
-      <Card className="p-0">
+      <Card className="overflow-x-auto p-0">
         <table className="w-full text-sm">
           <thead>
             <tr className="border-b border-slate-200 text-left text-slate-500 dark:border-slate-800">

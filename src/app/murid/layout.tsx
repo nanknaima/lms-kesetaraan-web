@@ -16,7 +16,6 @@ import {
   Home,
   LogOut,
   Bell,
-  School,
   MessageCircle,
 } from "lucide-react";
 
@@ -31,13 +30,15 @@ const NAV: NavItem[] = [
   { href: "/murid/profil", label: "Profil", icon: UserIcon },
 ];
 
-// Bottom nav (HP) sengaja ringkas — Profil dipindah ke avatar di appbar (lihat header di bawah),
-// Mapel & Tugas digabung jadi satu hub "Ruang Kelas". Chat personal (BUKAN forum Diskusi
-// per-mapel) ikut ditaruh di sini karena setara pentingnya dengan Home di aplikasi mobile.
 const BOTTOM_NAV = [
   { href: "/murid/dashboard", label: "Home", icon: Home },
-  { href: "/murid/materi", label: "Ruang Kelas", icon: School },
+  { href: "/murid/materi", label: "Mapel", icon: BookOpen },
+  { href: "/murid/tugas", label: "Tugas", icon: ClipboardList },
+  { href: "/murid/kuis", label: "Kuis", icon: ListChecks },
   { href: "/murid/chat", label: "Chat", icon: MessageCircle },
+  { href: "/murid/absensi", label: "Absensi", icon: CalendarCheck },
+  { href: "/murid/nilai-akhir", label: "Nilai Akhir", icon: Trophy },
+  { href: "/murid/profil", label: "Profil", icon: UserIcon },
 ];
 
 /**
@@ -50,16 +51,16 @@ export default function MuridLayout({ children }: { children: React.ReactNode })
   const pathname = usePathname();
   const router = useRouter();
 
-  if (loading) return <div className="flex min-h-screen items-center justify-center text-sm text-slate-500">Memuat...</div>;
+  if (loading) return <div className="flex min-h-dvh items-center justify-center text-sm text-slate-500">Memuat...</div>;
 
   return (
-    <div className="flex h-screen overflow-hidden bg-slate-50 dark:bg-slate-950">
+    <div className="flex h-dvh overflow-hidden bg-slate-50 dark:bg-slate-950">
       {/* Sidebar — hanya tampil di layar besar (desktop/laptop), sama seperti admin & guru */}
       <div className="hidden lg:block">
         <Sidebar user={user} items={NAV} roleLabel="Murid" />
       </div>
 
-      <div className="flex h-screen flex-1 flex-col overflow-hidden">
+      <div className="flex h-dvh min-w-0 flex-1 flex-col overflow-hidden">
         {/* Header — hanya tampil di layar kecil, sidebar sudah menggantikannya di desktop */}
         <header className="flex items-center justify-between gap-3 bg-gradient-to-br from-teal-600 to-teal-700 px-4 py-4 lg:hidden">
           <Link href="/murid/profil" className="flex min-w-0 items-center gap-2.5">
@@ -97,13 +98,13 @@ export default function MuridLayout({ children }: { children: React.ReactNode })
           </div>
         </header>
 
-        <main className="flex-1 overflow-y-auto p-4 pb-24 lg:p-8 lg:pb-8">
-          <div className="mx-auto h-full w-full max-w-6xl">{children}</div>
+        <main className="min-h-0 min-w-0 flex-1 overflow-x-hidden overflow-y-auto px-4 pb-[calc(8rem+env(safe-area-inset-bottom))] pt-4 sm:px-6 lg:p-8">
+          <div className="mx-auto min-h-full w-full max-w-6xl">{children}</div>
         </main>
       </div>
 
       {/* Bottom navigation — hanya di layar kecil */}
-      <nav className="fixed bottom-0 left-0 flex w-full items-center justify-around border-t border-slate-200 bg-white/95 py-2 backdrop-blur-sm lg:hidden dark:border-slate-800 dark:bg-slate-900/95">
+      <nav aria-label="Navigasi murid" className="fixed inset-x-0 bottom-0 z-30 grid grid-cols-4 grid-rows-2 border-t border-slate-200 bg-white/95 px-1 pb-[calc(0.375rem+env(safe-area-inset-bottom))] pt-1.5 backdrop-blur-sm lg:hidden dark:border-slate-800 dark:bg-slate-900/95">
         {BOTTOM_NAV.map((item) => {
           const active = pathname?.startsWith(item.href);
           const Icon = item.icon;
@@ -111,11 +112,11 @@ export default function MuridLayout({ children }: { children: React.ReactNode })
             <Link
               key={item.href}
               href={item.href}
-              className={`flex flex-col items-center gap-0.5 rounded-xl px-4 py-1.5 text-xs font-medium transition ${
+              className={`flex min-w-0 flex-col items-center justify-center gap-0.5 rounded-xl px-1 py-1.5 text-[10px] font-medium leading-tight transition ${
                 active ? "text-teal-600" : "text-slate-400 hover:text-slate-500"
               }`}
             >
-              <Icon className={`h-5 w-5 transition ${active ? "scale-110" : ""}`} strokeWidth={2} />
+              <Icon className={`h-5 w-5 shrink-0 transition ${active ? "scale-110" : ""}`} strokeWidth={2} />
               {item.label}
             </Link>
           );

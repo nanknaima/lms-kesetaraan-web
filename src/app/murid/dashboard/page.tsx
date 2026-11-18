@@ -25,10 +25,8 @@ const TUGAS_STATUS_STYLE: Record<Tugas["status"], string> = {
 };
 
 /**
- * Dashboard murid — pusat INFORMASI, bukan daftar link menu (navigasi utama sudah
- * ditangani Sidebar/Bottom Navbar di MuridLayout). Absensi & Nilai Akhir dipindah ke
- * /murid/profil, Mapel & Tugas digabung jadi "Ruang Kelas" di bottom nav, Profil hanya
- * lewat avatar di appbar — supaya tidak duplikat dengan navigasi.
+ * Dashboard murid — pusat informasi, bukan daftar link menu; navigasi utama ditangani
+ * Sidebar pada desktop dan bottom navigation pada layar kecil.
  */
 export default function MuridDashboardPage() {
   const [pertemuan, setPertemuan] = useState<PertemuanOnline[]>([]);

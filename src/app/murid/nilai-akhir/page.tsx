@@ -57,7 +57,7 @@ export default function MuridNilaiAkhirPage() {
               </span>
             </div>
 
-            <div className="mt-3 grid grid-cols-4 gap-2 border-t border-slate-100 pt-3 dark:border-slate-800">
+            <div className="mt-3 grid grid-cols-2 gap-2 border-t border-slate-100 pt-3 dark:border-slate-800 sm:grid-cols-4">
               <div className="text-center">
                 <p className="text-sm font-semibold text-slate-700 dark:text-slate-200">{n.nilai_tugas}</p>
                 <p className="text-[10px] text-slate-500">Tugas</p>

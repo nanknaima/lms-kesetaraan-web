@@ -62,7 +62,7 @@ export default function MuridAbsensiPage() {
         />
       )}
 
-      <div className="grid grid-cols-4 gap-2">
+      <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
         <Card className="p-3 text-center">
           <p className="text-lg font-bold text-emerald-600 dark:text-emerald-400">
             {hitung("hadir")}/{total}

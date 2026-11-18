@@ -38,7 +38,7 @@ export function PertemuanOnlineCard({ pertemuan, isMurid = false }: { pertemuan:
   }
 
   return (
-    <div className="flex items-center justify-between gap-4 rounded-xl border border-slate-200 bg-white p-4 shadow-sm dark:border-slate-700 dark:bg-slate-900">
+    <div className="flex flex-wrap items-center justify-between gap-4 rounded-xl border border-slate-200 bg-white p-4 shadow-sm dark:border-slate-700 dark:bg-slate-900">
       <div className="min-w-0">
         <div className="mb-1 flex items-center gap-2">
           <span className="rounded-md bg-teal-100 px-2 py-0.5 text-xs font-semibold text-teal-700 dark:bg-teal-900 dark:text-teal-300">

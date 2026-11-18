@@ -58,7 +58,7 @@ export function PenugasanAktifBanner({ aktif }: { aktif: PenugasanAktif }) {
 
   return (
     <div ref={wadah} className="relative">
-      <div className="flex items-center justify-between rounded-lg bg-teal-50 px-4 py-2.5 text-sm dark:bg-teal-950">
+      <div className="flex flex-wrap items-center justify-between gap-2 rounded-lg bg-teal-50 px-4 py-2.5 text-sm dark:bg-teal-950">
         <span className="flex items-center gap-2 text-teal-800 dark:text-teal-200">
           <BookOpen className="h-4 w-4 shrink-0" strokeWidth={2} />
           <strong>{aktif.namaMapel}</strong> — {aktif.namaKelas}

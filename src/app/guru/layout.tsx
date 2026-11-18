@@ -33,12 +33,12 @@ const NAV: NavItem[] = [
 export default function GuruLayout({ children }: { children: React.ReactNode }) {
   const { user, loading } = useAuth("guru");
 
-  if (loading) return <div className="flex min-h-screen items-center justify-center text-sm text-slate-500">Memuat...</div>;
+  if (loading) return <div className="flex min-h-dvh items-center justify-center text-sm text-slate-500">Memuat...</div>;
 
   return (
-    <div className="flex h-screen overflow-hidden bg-slate-50 dark:bg-slate-950">
+    <div className="flex h-dvh overflow-hidden bg-slate-50 dark:bg-slate-950">
       <Sidebar user={user} items={NAV} roleLabel={`Guru${user?.nis ? "" : ""}`} />
-      <main className="flex-1 overflow-y-auto p-6">{children}</main>
+      <main className="min-h-0 min-w-0 flex-1 overflow-x-hidden overflow-y-auto px-4 pb-6 pt-20 sm:px-6 lg:p-6">{children}</main>
     </div>
   );
 }

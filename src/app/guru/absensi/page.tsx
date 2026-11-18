@@ -186,7 +186,7 @@ function GuruAbsensiPageInner() {
 
       {aktif && <PenugasanAktifBanner aktif={aktif} />}
 
-      <Card>
+      <Card className="overflow-x-auto">
         <div className="mb-4 flex flex-wrap items-center gap-3">
           <label className="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-300">
             Tanggal
@@ -267,7 +267,7 @@ function GuruAbsensiPageInner() {
         </button>
       </Card>
 
-      <Card>
+      <Card className="overflow-x-auto">
         <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
           <div className="flex items-center gap-2">
             <p className="font-semibold text-slate-800 dark:text-white">Rekap Bulanan</p>

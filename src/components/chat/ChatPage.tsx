@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import {
   Send,
+  ArrowLeft,
   Lock,
   MessageSquare,
   Search,
@@ -208,9 +209,9 @@ export function ChatPage({ currentUserId }: { currentUserId?: number }) {
   );
 
   return (
-    <div className="flex h-[75vh] min-h-[500px] overflow-hidden rounded-2xl border border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900">
+    <div className="flex h-[min(75vh,800px)] min-h-[400px] w-full min-w-0 overflow-hidden rounded-2xl border border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900 sm:min-h-[500px]">
       {/* Kontak — kiri */}
-      <div className="flex w-full max-w-xs shrink-0 flex-col border-r border-slate-200 dark:border-slate-800">
+      <div className={`${selected ? "hidden sm:flex" : "flex"} w-full shrink-0 flex-col border-r border-slate-200 dark:border-slate-800 sm:max-w-xs`}>
         <div className="border-b border-slate-200 p-4 dark:border-slate-800">
           <h1 className="text-sm font-bold text-slate-800 dark:text-white">Chat</h1>
           <p className="text-xs text-slate-500">Obrolan personal, bukan forum diskusi.</p>
@@ -277,7 +278,7 @@ export function ChatPage({ currentUserId }: { currentUserId?: number }) {
       </div>
 
       {/* Percakapan — kanan */}
-      <div className="flex min-w-0 flex-1 flex-col">
+      <div className={`${selected ? "flex" : "hidden sm:flex"} min-w-0 flex-1 flex-col`}>
         {!selected ? (
           <div className="flex flex-1 flex-col items-center justify-center gap-2 text-slate-400">
             <MessageSquare className="h-10 w-10" strokeWidth={1.5} />
@@ -288,6 +289,16 @@ export function ChatPage({ currentUserId }: { currentUserId?: number }) {
             <div className="border-b border-slate-200 dark:border-slate-800">
               {!modePilih ? (
                 <div className="flex items-center gap-3 px-4 py-3">
+                  <button
+                    onClick={() => {
+                      setSelected(null);
+                      setPesan(null);
+                    }}
+                    aria-label="Kembali ke daftar kontak"
+                    className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-slate-500 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800 sm:hidden"
+                  >
+                    <ArrowLeft className="h-4 w-4" strokeWidth={2} />
+                  </button>
                   <Avatar nama={selected.nama} avatarUrl={selected.avatar_url} size={36} />
                   <div className="min-w-0 flex-1">
                     <p className="truncate text-sm font-semibold text-slate-800 dark:text-white">{selected.nama}</p>
